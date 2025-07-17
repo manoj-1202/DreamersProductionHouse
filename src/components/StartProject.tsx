@@ -64,11 +64,17 @@ const services: Service[] = [
 
 const StartProject: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
-  const [selectedType, setSelectedType] = useState<"individual" | "combo" | "">(
-    ""
-  );
+  const [selectedType, setSelectedType] = useState<"individual" | "combo" | "">("");
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [showServiceList, setShowServiceList] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+   const [duration, setDuration] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   const navigate = useNavigate();
 
   const handleOpenForm = (type: "individual" | "combo") => {
@@ -78,9 +84,48 @@ const StartProject: React.FC = () => {
     setShowForm(true);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    try {
+      const response = await fetch("http://localhost:5000/send-contact-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          location,
+          duration,
+          message,
+          services: selectedServices,
+          type: selectedType,
+        }),
+      });
+
+      if (response.ok) {
+        alert("Your request has been sent successfully!");
+        setName("");
+        setEmail("");
+        setPhone("");
+        setLocation("");
+        setDuration("");
+        setMessage("");
+        setSelectedServices([]);
+        setShowForm(false);
+      } else {
+        alert("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error sending email.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -88,7 +133,6 @@ const StartProject: React.FC = () => {
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
       </div>
 
-      {/* Back Button */}
       <Button
         variant="ghost"
         size="sm"
@@ -99,15 +143,13 @@ const StartProject: React.FC = () => {
         <span className="text-sm font-medium">Back</span>
       </Button>
 
-      {/* Foreground */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-16">
         <h1 className="text-4xl lg:text-5xl font-bold text-foreground text-center mb-12 drop-shadow-lg">
           Let’s Bring Your Vision to Life
         </h1>
 
         {!showForm ? (
-          <div className="flex flex-col lg:flex-row gap-8 " >
-            {/* Individual Service */}
+          <div className="flex flex-col lg:flex-row gap-8">
             <div
               className="max-w-md w-full bg-background/90 p-8 rounded-xl shadow-xl cursor-pointer hover:shadow-2xl transition-shadow border border-muted group backdrop-blur"
               onClick={() => handleOpenForm("individual")}
@@ -125,7 +167,6 @@ const StartProject: React.FC = () => {
               </Button>
             </div>
 
-            {/* Combo Work */}
             <div
               className="max-w-md w-full bg-background/90 p-8 rounded-xl shadow-xl cursor-pointer hover:shadow-2xl transition-shadow border border-muted group backdrop-blur"
               onClick={() => handleOpenForm("combo")}
@@ -145,7 +186,6 @@ const StartProject: React.FC = () => {
           </div>
         ) : (
           <div className="max-w-xl w-full bg-background/95 p-8 rounded-xl shadow-xl backdrop-blur-md relative animate-fade-in">
-            {/* Close Form Button */}
             <Button
               variant="ghost"
               size="sm"
@@ -159,7 +199,6 @@ const StartProject: React.FC = () => {
               Start Your Project
             </h2>
 
-            {/* Type Selector */}
             <div className="mb-4 flex justify-center gap-6">
               <label className="flex items-center gap-2 text-sm font-medium text-foreground">
                 <input
@@ -189,8 +228,7 @@ const StartProject: React.FC = () => {
               </label>
             </div>
 
-            <form className="space-y-4">
-              {/* Service Selection for Individual */}
+            <form className="space-y-4" onSubmit={handleSubmit}>
               {selectedType === "individual" && (
                 <>
                   {!showServiceList ? (
@@ -235,80 +273,86 @@ const StartProject: React.FC = () => {
                 </>
               )}
 
-              {/* Name Field */}
               <div>
-                <label className="block text-sm font-medium text-muted-foreground">
-                  Name
-                </label>
+                <label className="block text-sm font-medium text-muted-foreground">Name</label>
                 <input
                   type="text"
-       className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
-
+                  className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   placeholder="Your Name"
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
-              {/* Email Field */}
               <div>
-                <label className="block text-sm font-medium text-muted-foreground">
-                  Email
-                </label>
+                <label className="block text-sm font-medium text-muted-foreground">Email</label>
                 <input
                   type="email"
                   className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   placeholder="Your Email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
-              {/* Phone Field */}
               <div>
-                <label className="block text-sm font-medium text-muted-foreground">
-                  Phone Number
-                </label>
+                <label className="block text-sm font-medium text-muted-foreground">Phone Number</label>
                 <input
                   type="tel"
                   className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   placeholder="Your Phone Number"
                   required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
 
-               {/* Location */}
               <div>
-                <label className="block text-sm font-medium text-muted-foreground">
-                  Phone Number
-                </label>
+                <label className="block text-sm font-medium text-muted-foreground">Location</label>
                 <input
-                  type="tel"
+                  type="text"
                   className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  placeholder="Your Phone Number"
+                  placeholder="Your Location"
                   required
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
                 />
               </div>
 
-              {/* Project Details */}
               <div>
-                <label className="block text-sm font-medium text-muted-foreground">
-                  Project Details
-                </label>
+                <label className="block text-sm font-medium text-muted-foreground">Duration</label>
+                <input
+                  type="text"
+                  className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  placeholder="Movie Duration"
+                  required
+                  value={duration}
+                  onChange={(e) => setDuration(e.target.value)}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-muted-foreground">Project Details</label>
                 <textarea
                   className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   placeholder="Tell us about your project"
                   rows={4}
                   required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
 
-              {/* Submit Button */}
               <Button
                 type="submit"
                 variant="cinematic"
                 size="xl"
                 className="w-full group"
+                disabled={submitting}
               >
-                Submit
+                {submitting ? "Sending..." : "Submit"}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
