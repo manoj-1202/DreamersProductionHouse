@@ -106,7 +106,7 @@ const StartProject: React.FC = () => {
         </h1>
 
         {!showForm ? (
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-8 " >
             {/* Individual Service */}
             <div
               className="max-w-md w-full bg-background/90 p-8 rounded-xl shadow-xl cursor-pointer hover:shadow-2xl transition-shadow border border-muted group backdrop-blur"
@@ -263,6 +263,19 @@ const StartProject: React.FC = () => {
               </div>
 
               {/* Phone Field */}
+              <div>
+                <label className="block text-sm font-medium text-muted-foreground">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  className="w-full p-2 mt-1 rounded-md border border-muted bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                  placeholder="Your Phone Number"
+                  required
+                />
+              </div>
+
+               {/* Location */}
               <div>
                 <label className="block text-sm font-medium text-muted-foreground">
                   Phone Number

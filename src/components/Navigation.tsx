@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import icon from "@/assets/icon.png";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +20,10 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2 ">
-           <img src={icon} alt="icon" className="w-24 h-24 object-contain" />
-            <span className="text-xl font-bold text-foreground">Dreamers Production House</span>
+            <img src={icon} alt="icon" className="w-24 h-24 object-contain" />
+            <span className="text-xl font-bold text-foreground">
+              Dreamers Production House
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -34,9 +37,12 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="default" size="sm">
-              Get Quote
-            </Button>
+            <Link
+              to="/startProject"
+              className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition-all duration-300"
+            >
+              Start Now
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -46,7 +52,11 @@ const Navigation = () => {
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -54,20 +64,27 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
+            {/* Navigation Links */}
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="block py-2 text-muted-foreground hover:text-primary transition-colors duration-300 text-center"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </a>
             ))}
-            <div className="pt-4">
-              <Button variant="default" size="sm" className="w-full">
-                Get Quote
-              </Button>
+
+            {/* Centered Start Button */}
+            <div className="pt-6 flex justify-center">
+              <Link
+                to="/startProject"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition-all duration-300"
+                onClick={() => setIsOpen(false)}
+              >
+                Start Now
+              </Link>
             </div>
           </div>
         )}
