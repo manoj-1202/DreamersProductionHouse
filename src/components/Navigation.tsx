@@ -14,12 +14,29 @@ const Navigation = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false); // Close mobile menu
+
+    const targetId = href.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector("nav")?.offsetHeight || 80; 
+      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-3">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 ">
+          <div className="flex items-center space-x-2">
             <img src={icon} alt="icon" className="w-24 h-24 object-contain" />
             <span className="text-xl font-bold text-foreground">
               Dreamers Production House
@@ -33,6 +50,7 @@ const Navigation = () => {
                 key={item.name}
                 href={item.href}
                 className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                onClick={(e) => handleAnchorClick(e, item.href)}
               >
                 {item.name}
               </a>
@@ -70,7 +88,7 @@ const Navigation = () => {
                 key={item.name}
                 href={item.href}
                 className="block py-2 text-muted-foreground hover:text-primary transition-colors duration-300 text-center"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleAnchorClick(e, item.href)}
               >
                 {item.name}
               </a>

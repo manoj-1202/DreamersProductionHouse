@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-bg.jpg";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface Service {
   icon: LucideIcon;
@@ -71,7 +72,7 @@ const StartProject: React.FC = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
-   const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState("");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -104,7 +105,9 @@ const StartProject: React.FC = () => {
       });
 
       if (response.ok) {
-        alert("Your request has been sent successfully!");
+        toast.success("Success", {
+          description: "Your request has been sent successfully!",
+        });
         setName("");
         setEmail("");
         setPhone("");
@@ -113,12 +116,17 @@ const StartProject: React.FC = () => {
         setMessage("");
         setSelectedServices([]);
         setShowForm(false);
+        navigate("/"); 
       } else {
-        alert("Something went wrong. Please try again later.");
+        toast.error("Error", {
+          description: "Something went wrong. Please try again later.",
+        });
       }
     } catch (error) {
       console.error(error);
-      alert("Error sending email.");
+      toast.error("Error", {
+        description: "Error sending email.",
+      });
     } finally {
       setSubmitting(false);
     }
