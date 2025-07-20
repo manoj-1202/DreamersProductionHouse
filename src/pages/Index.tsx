@@ -46,7 +46,7 @@ const Index = () => {
           />
         </a>
       </div>
-      <div className="fixed bottom-5 right-14 z-50">
+      <div className="fixed bottom-5 right-5 z-50">
         <button
           onClick={handleScrollTop}
           className="bg-white shadow-lg rounded-full p-3 hover:bg-gray-200"
