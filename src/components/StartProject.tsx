@@ -19,6 +19,8 @@ import heroImage from "@/assets/hero-bg.jpg";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Footer from "./Footer";
+import phonecall from "@/assets/phone-call.png"; 
+import whatsapp from "@/assets/whatsapp.png"; 
 
 interface Service {
   icon: LucideIcon;
@@ -141,6 +143,28 @@ const StartProject: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <section className="relative flex-1 overflow-hidden">
+        {/* Floating Action Buttons */}
+      <div className="fixed top-1/2 left-3 transform -translate-y-1/2 z-50 flex flex-col gap-8">
+        <a href="tel:+917904310585" className="rounded-full animate-pulse">
+          <img
+            src={phonecall}
+            alt="Call Now"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
+        </a>
+        <a
+          href="https://api.whatsapp.com/send?phone=7904310585"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full animate-pulse"
+        >
+          <img
+            src={whatsapp}
+            alt="WhatsApp"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
+        </a>
+      </div>
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ backgroundImage: `url(${heroImage})` }}
