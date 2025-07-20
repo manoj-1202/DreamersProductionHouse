@@ -26,7 +26,7 @@ const Index = () => {
       <Footer />
       {/* Floating Action Buttons */}
       <div className="fixed top-1/2 left-3 transform -translate-y-1/2 z-50 flex flex-col gap-8">
-        <a href="tel:+7904310585" className="rounded-full animate-pulse">
+        <a href="tel:+917904310585" className="rounded-full animate-pulse">
           <img
             src={phonecall}
             alt="Call Now"
