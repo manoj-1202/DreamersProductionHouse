@@ -8,11 +8,22 @@ import {
   Palette, 
   Music, 
   Image, 
-  Video 
+  Video,
+  LucideIcon 
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+interface Service {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  color: string;
+}
 
 const Services = () => {
-  const services = [
+  const navigate = useNavigate();
+
+  const services: Service[] = [
     {
       icon: Scissors,
       title: "Video Editing",
@@ -32,16 +43,16 @@ const Services = () => {
       color: "text-primary"
     },
     {
-      icon: Volume2,
-      title: "Mixing",
-      description: "Expert audio mixing to balance all elements and create the perfect soundscape.",
+      icon: Volume2, 
+      title: "VFX",
+      description: "Stunning visual effects to enhance your videos with creative and cinematic visuals.",
       color: "text-accent"
     },
     {
       icon: Settings,
-      title: "Mastering",
-      description: "Final audio mastering to ensure your content sounds perfect across all platforms.",
-      color: "text-primary"
+      title: "Mixing & Mastering",
+      description: "Expert audio mixing and final mastering to ensure your sound is perfectly balanced and ready for any platform.",
+      color: "text-accent"
     },
     {
       icon: Palette,
@@ -66,15 +77,21 @@ const Services = () => {
       title: "Teaser Cut",
       description: "Compelling teaser cuts that build anticipation and engage your audience.",
       color: "text-primary"
-    }
+    },
   ];
+
+  const handleServiceClick = (title: string) => {
+    // Replace spaces with hyphens for URL-friendly slugs
+    const slug = title.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/services/${slug}`);
+  };
 
   return (
     <section id="services" className="py-20 px-6 bg-gradient-hero">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-           What We  <span className="bg-gradient-accent bg-clip-text text-transparent">Offer</span>
+           What We <span className="bg-gradient-accent bg-clip-text text-transparent">Offer</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We offer comprehensive post-production services to transform your raw footage into cinematic masterpieces.
@@ -85,8 +102,9 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={service.title}
-              className="p-6 bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105 group animate-scale-in"
+              className="p-6 bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105 group animate-scale-in cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => handleServiceClick(service.title)}
             >
               <div className="flex items-start space-x-4">
                 <div className={`p-3 rounded-lg bg-secondary ${service.color} group-hover:scale-110 transition-transform duration-300`}>
