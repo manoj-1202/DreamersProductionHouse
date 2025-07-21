@@ -5,8 +5,9 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { FaArrowUp } from "react-icons/fa";
-import phonecall from "@/assets/phone-call.png"; 
-import whatsapp from "@/assets/whatsapp.png"; 
+import phonecall from "@/assets/phone-call.png";
+import whatsapp from "@/assets/whatsapp.png";
+import instagram from "@/assets/instagram.png";
 import { useCallback } from "react";
 
 const Index = () => {
@@ -24,8 +25,10 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+
       {/* Floating Action Buttons */}
       <div className="fixed top-1/2 left-3 transform -translate-y-1/2 z-50 flex flex-col gap-8">
+        {/* Call */}
         <a href="tel:+917904310585" className="rounded-full animate-pulse">
           <img
             src={phonecall}
@@ -33,6 +36,8 @@ const Index = () => {
             className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
           />
         </a>
+
+        {/* WhatsApp */}
         <a
           href="https://api.whatsapp.com/send?phone=7904310585"
           target="_blank"
@@ -45,7 +50,23 @@ const Index = () => {
             className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
           />
         </a>
+
+        {/* Instagram */}
+        <a
+          href="https://www.instagram.com/dreamers_production_house_2025/?igsh=MWI3Znp0OGU5YnhsNA%3D%3D#" 
+          target="_blank"
+          rel="noopener noreferrer"
+           className="w-10 h-10 sm:w-12 sm:h-12 object-contain" 
+        >
+         <img
+            src={instagram}
+            alt="WhatsApp"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
+        </a>
       </div>
+
+      {/* Scroll to Top Button */}
       <div className="fixed bottom-5 right-5 z-50">
         <button
           onClick={handleScrollTop}
