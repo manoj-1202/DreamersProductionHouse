@@ -3,6 +3,7 @@ import icon from "@/assets/icon.png";
 import phonecall from "@/assets/phone-call.png";
 import whatsapp from "@/assets/whatsapp.png";
 import instagram from "@/assets/instagram.png";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -26,54 +27,68 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Services</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>
-                <a href="/services/video-editing" className="hover:text-primary transition-colors">
-                  Video Editing
-                </a>
-              </li>
-              <li>
-                <a href="/services/di-color-grading" className="hover:text-primary transition-colors">
-                  DI Color Grading
-                </a>
-              </li>
-              <li>
-                <a href="/services/mixing-&-mastering" className="hover:text-primary transition-colors">
-                  Audio Mixing & Mastering
-                </a>
-              </li>
-              <li>
-                <a href="/services/sfx" className="hover:text-primary transition-colors">
-                  SFX Design
-                </a>
-              </li>
-               <li>
-               <div className="flex items-center space-x-1">
-  <a href="/services/vfx" className="hover:text-primary transition-colors">
-    VFX Design /
-  </a>
-  <a
-    href="#services"
-    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-  >
-    More...
-  </a>
-</div>
-
-              </li>
-             
-            </ul>
+      <h4 className="font-semibold text-foreground mb-4">Services</h4>
+      <ul className="space-y-2 text-muted-foreground">
+        <li>
+          <Link
+            to="/services/video-editing"
+            className="hover:text-primary transition-colors"
+          >
+            Video Editing
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/services/di-color-grading"
+            className="hover:text-primary transition-colors"
+          >
+            DI Color Grading
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/services/mixing-&-mastering"
+            className="hover:text-primary transition-colors"
+          >
+            Audio Mixing & Mastering
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/services/sfx"
+            className="hover:text-primary transition-colors"
+          >
+            SFX Design
+          </Link>
+        </li>
+        <li>
+          <div className="flex items-center space-x-1">
+            <Link
+              to="/services/vfx"
+              className="hover:text-primary transition-colors"
+            >
+              VFX Design /
+            </Link>
+            <Link
+              to="#services"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              More...
+            </Link>
           </div>
+        </li>
+      </ul>
+    </div>
 
-          
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Mail className="w-10 h-10" />
-                <span className="text-sm">dreamersproductionhouse@gmail.com</span>
+                <span className="text-sm">
+                  dreamersproductionhouse@gmail.com
+                </span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
@@ -81,7 +96,10 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-8 h-8" />
-                <span className="text-sm">21/b Saisubaramaniyam Nagar, Nanjagoundapalayam, Gobichettipalayam, Erode, 638452.</span>
+                <span className="text-sm">
+                  21/b Saisubaramaniyam Nagar, Nanjagoundapalayam,
+                  Gobichettipalayam, Erode, 638452.
+                </span>
               </div>
             </div>
           </div>
