@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Award, Users, Clock, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
   const stats = [
@@ -78,9 +80,13 @@ const About = () => {
               expectations every time.
             </p>
 
-            <Button variant="hero" size="lg" className="group">
-              Learn More About Us
-            </Button>
+            <Link
+              to="/startProject"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-md text-lg font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-all group"
+            >
+              Start Your Project
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            </Link>
           </motion.div>
 
           {/* Stats Grid */}
@@ -92,10 +98,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={itemVariants}
-              >
+              <motion.div key={stat.label} variants={itemVariants}>
                 <Card className="p-6 text-center bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105">
                   <div
                     className={`inline-flex p-3 rounded-full bg-secondary mb-4 ${stat.color}`}

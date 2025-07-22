@@ -57,6 +57,9 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
+              className={`transition-colors ${
+                isOpen ? "hover:text-red-500" : "hover:text-yellow-400"
+              }`}
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
