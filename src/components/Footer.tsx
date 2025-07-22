@@ -3,7 +3,7 @@ import icon from "@/assets/icon.png";
 import phonecall from "@/assets/phone-call.png";
 import whatsapp from "@/assets/whatsapp.png";
 import instagram from "@/assets/instagram.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,12 +12,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-4 mb-4">
               <img src={icon} alt="icon" className="w-24 h-24 object-contain" />
-              <span className="text-xl font-bold text-foreground">
-                Dreemers Production House
-              </span>
+
+              <div className="flex flex-col items-center">
+                <span className="text-xl font-bold text-foreground font-cinzel text-center">
+                  Dreemer's Production House
+                </span>
+                <p className="text-center text-muted-foreground italic text-sm">
+                  “Your Dream. It's Our Dream.”
+                </p>
+              </div>
             </div>
+
             <p className="text-muted-foreground leading-relaxed max-w-md">
               Professional post-production services bringing your creative
               vision to life. From concept to completion, we craft stories that
@@ -27,58 +34,58 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-      <h4 className="font-semibold text-foreground mb-4">Services</h4>
-      <ul className="space-y-2 text-muted-foreground">
-        <li>
-          <Link
-            to="/services/video-editing"
-            className="hover:text-primary transition-colors"
-          >
-            Video Editing
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/services/di-color-grading"
-            className="hover:text-primary transition-colors"
-          >
-            DI Color Grading
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/services/mixing-&-mastering"
-            className="hover:text-primary transition-colors"
-          >
-            Audio Mixing & Mastering
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/services/sfx"
-            className="hover:text-primary transition-colors"
-          >
-            SFX Design
-          </Link>
-        </li>
-        <li>
-          <div className="flex items-center space-x-1">
-            <Link
-              to="/services/vfx"
-              className="hover:text-primary transition-colors"
-            >
-              VFX Design /
-            </Link>
-            <Link
-              to="#services"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              More...
-            </Link>
+            <h4 className="font-semibold text-foreground mb-4">Services</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>
+                <Link
+                  to="/services/video-editing"
+                  className="hover:text-primary transition-colors"
+                >
+                  Video Editing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/di-color-grading"
+                  className="hover:text-primary transition-colors"
+                >
+                  DI Color Grading
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/mixing-&-mastering"
+                  className="hover:text-primary transition-colors"
+                >
+                  Audio Mixing & Mastering
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services/sfx"
+                  className="hover:text-primary transition-colors"
+                >
+                  SFX Design
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center space-x-1">
+                  <Link
+                    to="/services/vfx"
+                    className="hover:text-primary transition-colors"
+                  >
+                    VFX Design /
+                  </Link>
+                  <Link
+                    to="/startProject"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    More...
+                  </Link>
+                </div>
+              </li>
+            </ul>
           </div>
-        </li>
-      </ul>
-    </div>
 
           {/* Contact */}
           <div>

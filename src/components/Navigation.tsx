@@ -19,11 +19,17 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6 py-3">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img src={icon} alt="icon" className="w-24 h-24 object-contain" />
-            <span className="text-xl font-bold text-foreground">
-              Dreamers Production House
-            </span>
+          <div className="flex items-center space-x-4">
+            <img src={icon} alt="icon" className="w-24 h-20 object-contain" />
+
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-foreground font-cinzel">
+                Dreamer's Production House
+              </span>
+              <p className="text-sm italic text-muted-foreground font-thin -mt-1 text-center w-full hidden sm:block">
+                “Your Dream. It's Our Dream.”
+              </p>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -64,6 +70,9 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
+            <p className="text-center text-sm italic text-muted-foreground mb-1">
+              “Your Dream. It's Our Dream.”
+            </p>
             {navItems.map((item) => (
               <a
                 key={item.name}
