@@ -73,7 +73,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <p className="text-center text-sm italic text-muted-foreground mb-1">
+            <p className="text-center text-sm italic font-thin mb-1">
               “Your Dream. It's Our Dream.”
             </p>
             {navItems.map((item) => (

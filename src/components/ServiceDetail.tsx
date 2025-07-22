@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from "./Footer";
 import { useEffect } from "react";
+import videoEditing from '../assets/videoEditing.png'
 
 interface Service {
   icon: LucideIcon;
@@ -26,13 +27,15 @@ interface Service {
 }
 
 const services: Service[] = [
-  {
-    icon: Scissors,
-    title: "Video Editing",
-    description: "Our professional video editing services utilize cinematic storytelling techniques and seamless transitions to transform your raw footage into a polished, engaging narrative. Whether it's a short film, commercial, or personal project, we ensure every cut enhances the story.",
-    color: "text-primary",
-    image: "https://images.unsplash.com/photo-1547658719-612f78625a3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-  },
+ {
+  icon: Scissors,
+  title: "Video Editing",
+  description:
+    "Our professional video editing services utilize cinematic storytelling techniques and seamless transitions to transform your raw footage into a polished, engaging narrative. Whether it's a short film, commercial, or personal project, we ensure every cut enhances the story.",
+  color: "text-primary",
+  image: videoEditing 
+},
+
   {
     icon: Mic,
     title: "Voice Dubbing",
