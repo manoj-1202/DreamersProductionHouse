@@ -17,7 +17,7 @@ const Footer = () => {
 
               <div className="flex flex-col items-center">
                 <span className="text-xl font-bold text-foreground font-cinzel text-center">
-                  Dreemer's Production House
+                  Dreamer's Production House
                 </span>
                 <p className="text-center text-muted-foreground italic text-sm">
                   “Your Dream. It's Our Dream.”
