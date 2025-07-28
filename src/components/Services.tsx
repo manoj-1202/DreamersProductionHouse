@@ -1,21 +1,19 @@
 import { Card } from "@/components/ui/card";
-import {
-  Scissors,
-  Mic,
-  Zap,
-  Volume2,
-  Settings,
-  Palette,
-  Music,
-  Image,
-  Video,
-  LucideIcon,
-} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import colorGrading from "../assets/colorGrading.png"
+import dubbing from "../assets/dubbing.png"
+import mixmas from "../assets/mixmas.png"
+import muisc from "../assets/music.png"
+import poster from "../assets/poster.png"
+import sxf from "../assets/sxf.png"
+import vfx from "../assets/vfx.png"
+import teaser from "../assets/teaser.png"
+import videoEditing from "../assets/videoEditing.png"
+
 
 interface Service {
-  icon: LucideIcon;
+  icon: string;
   title: string;
   description: string;
   color: string;
@@ -26,63 +24,63 @@ const Services = () => {
 
   const services: Service[] = [
     {
-      icon: Scissors,
+      icon: videoEditing,
       title: "Video Editing",
       description:
         "Professional video editing with cinematic storytelling techniques and seamless transitions.",
       color: "text-primary",
     },
     {
-      icon: Mic,
+      icon: dubbing,
       title: "Voice Dubbing",
       description:
         "High-quality voice recording and dubbing services with professional voice artists.",
       color: "text-accent",
     },
     {
-      icon: Zap,
+      icon: sxf,
       title: "SFX",
       description:
         "Immersive sound effects design that brings your visuals to life with dynamic audio.",
       color: "text-primary",
     },
     {
-      icon: Volume2,
+      icon: vfx,
       title: "VFX",
       description:
         "Stunning visual effects to enhance your videos with creative and cinematic visuals.",
       color: "text-accent",
     },
     {
-      icon: Settings,
+      icon: mixmas,
       title: "Mixing & Mastering",
       description:
         "Expert audio mixing and final mastering to ensure your sound is perfectly balanced and ready for any platform.",
       color: "text-accent",
     },
     {
-      icon: Palette,
+      icon: colorGrading,
       title: "DI Color Grading",
       description:
         "Professional color grading to enhance mood, atmosphere, and visual storytelling.",
       color: "text-accent",
     },
     {
-      icon: Music,
+      icon:muisc,
       title: "Music Composing",
       description:
         "Original music composition tailored to your project's emotional and narrative needs.",
       color: "text-primary",
     },
     {
-      icon: Image,
+      icon: poster,
       title: "Poster Designing",
       description:
         "Eye-catching poster designs that capture the essence of your project.",
       color: "text-accent",
     },
     {
-      icon: Video,
+      icon: teaser,
       title: "Teaser Cut",
       description:
         "Compelling teaser cuts that build anticipation and engage your audience.",
@@ -123,15 +121,15 @@ const Services = () => {
                 ease: "easeOut",
               }}
             >
-              <Card
+               <Card
                 className="p-6 bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105 group cursor-pointer"
                 onClick={() => handleServiceClick(service.title)}
               >
                 <div className="flex items-start space-x-4">
                   <div
-                    className={`p-3 rounded-lg bg-secondary ${service.color} group-hover:scale-110 transition-transform duration-300`}
+                    className={`p-2 w-16 h-16 rounded-lg overflow-hidden bg-secondary ${service.color} group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <service.icon className="w-6 h-6" />
+                    <img src={service.icon} alt={service.title} className="w-full h-full object-cover rounded" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">

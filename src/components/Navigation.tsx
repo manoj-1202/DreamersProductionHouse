@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#home"); // default to home
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -14,6 +15,15 @@ const Navigation = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleNavClick = (href: string) => {
+    setActiveLink(href);
+    setIsOpen(false);
+    const section = document.querySelector(href);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-6 py-3">
@@ -21,7 +31,6 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <img src={icon} alt="icon" className="w-24 h-20 object-contain" />
-
             <div className="flex flex-col">
               <span className="text-xl font-bold text-foreground font-cinzel">
                 Dreamer's Production House
@@ -38,7 +47,15 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                className={`font-medium transition-colors duration-300 ${
+                  activeLink === item.href
+                    ? "text-primary underline underline-offset-4"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {item.name}
               </a>
@@ -80,8 +97,15 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-muted-foreground hover:text-primary transition-colors duration-300 text-center"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                className={`block py-2 text-center font-medium transition-colors duration-300 ${
+                  activeLink === item.href
+                    ? "text-primary underline underline-offset-4"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {item.name}
               </a>

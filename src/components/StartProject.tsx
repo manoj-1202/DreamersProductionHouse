@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Scissors,
   Mic,
@@ -56,6 +56,12 @@ const StartProject: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const navigate = useNavigate();
+
+
+useEffect(() => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}, []);
+
 
   const handleOpenForm = (type: "individual" | "combo") => {
     setSelectedType(type);
