@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-bg.jpg";
-import { Play, ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -32,10 +32,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-10 justify-center items-center">
-            <Button variant="hero" size="xl" className="group">
-              <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              View Our Work
-            </Button>
+            <a href="tel:+917904310585" >
+              <Button variant="hero" size="xl" className="group">
+                <Phone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Contact us
+              </Button>
+            </a>
 
             <Link
               to="/startProject"
