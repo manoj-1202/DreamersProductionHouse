@@ -162,7 +162,9 @@ useEffect(() => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground text-center mb-12 drop-shadow-lg">
-            Let’s Bring Your Vision to Life
+            Let’s Bring Your Vision to <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Life
+              </span>
           </h1>
 
           {!showForm ? (

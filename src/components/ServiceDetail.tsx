@@ -10,12 +10,11 @@ import vfx from "../assets/vfx.png";
 import teaser from "../assets/teaser.png";
 import videoEditing from "../assets/videoEditing.png";
 import ColorGradingImage from "../assets/ColorGradingImage.jpg";
-import videoEditingImage from "../assets/videoEditingImage.jpg";
 import dubbingImage from "../assets/dubbingImage.jpg";
 import sfxImage from "../assets/sfxImage.jpg";
-import vfxImage from "../assets/vfxImage.jpg";
+import vfxImage from "../assets/vfxImage.jpeg";
 import mixmasImage from "../assets/mixmasImage.jpg";
-import musicImage from "../assets/musicImage.jpg";
+import musicImage from "../assets/musicImage.jpeg";
 import posterImage from "../assets/posterImage.jpg";
 import teaserImage from "../assets/teaserImage.jpg";
 
@@ -40,7 +39,7 @@ const services: Service[] = [
       "Our professional video editing services utilize cinematic storytelling techniques and seamless transitions to transform your raw footage into a polished, engaging narrative. Whether it's a short film, commercial, or personal project, we ensure every cut enhances the story.",
     color: "text-primary",
     image:
-     videoEditingImage,
+     vfxImage,
   },
 
   {
