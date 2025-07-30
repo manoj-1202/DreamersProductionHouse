@@ -92,9 +92,10 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-2 text-muted-foreground">
-                <Mail className="w-10 h-10" />
+                <Mail className="w-4 h-4" />
                 <span className="text-sm">
-                  dreamersproductionhouse@gmail.com
+                  dreamersproductionhouse
+                  @gmail.com
                 </span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">

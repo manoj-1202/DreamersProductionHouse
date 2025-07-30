@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Award, Users, Clock, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import certificateImg from "@/assets/certificateImg.jpg"; 
-import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
 const About = () => {
@@ -181,13 +180,13 @@ const About = () => {
 
             {/* Certificate Image */}
           <motion.div variants={itemVariants}>
-  <Zoom>
+ 
     <img
       src={certificateImg}
       alt="MEIFF 2025 Winner Certificate"
       className="w-full h-auto max-h-[500px] rounded-md object-contain shadow-md cursor-zoom-in"
     />
-  </Zoom>
+  
 </motion.div>
           </motion.div>
         </div>

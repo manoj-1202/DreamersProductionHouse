@@ -17,7 +17,7 @@ import mixmasImage from "../assets/mixmasImage.jpg";
 import musicImage from "../assets/musicImage.jpeg";
 import posterImage from "../assets/posterImage.jpg";
 import teaserImage from "../assets/teaserImage.jpg";
-
+import videoImage from "../assets/videoImage.jpg"
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Footer from "./Footer";
@@ -39,7 +39,7 @@ const services: Service[] = [
       "Our professional video editing services utilize cinematic storytelling techniques and seamless transitions to transform your raw footage into a polished, engaging narrative. Whether it's a short film, commercial, or personal project, we ensure every cut enhances the story.",
     color: "text-primary",
     image:
-     vfxImage,
+     videoImage,
   },
 
   {
