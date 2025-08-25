@@ -36,7 +36,7 @@ const services: Service[] = [
     icon: videoEditing,
     title: "Video Editing",
     description:
-      "Our professional video editing services utilize cinematic storytelling techniques and seamless transitions to transform your raw footage into a polished, engaging narrative. Whether it's a short film, commercial, or personal project, we ensure every cut enhances the story.",
+      "At Dreamer's Production House, We Produce emotional and visually reflect commercials to have a quick relationship between our brand and the audience. Whether for TV, digital media, cinema or OTT platforms, our ads are designed to attract attention, inspire sparks interest and action.From more than 5 years of industry experiences and new start -ups with a diverse portfolio to global brands, we know how to convert our product or service to a compelling story - fully designed for the audience and stage.",
     color: "text-primary",
     image:
      videoImage,
@@ -46,7 +46,7 @@ const services: Service[] = [
     icon: dubbing,
     title: "Voice Dubbing",
     description:
-      "We provide high-quality voice recording and dubbing services with professional voice artists. Our team ensures crystal-clear audio and perfect synchronization, tailored to your project's tone and style.",
+      "At Dreams Production House, we bring your view of life with professional voice dubbing services that blend emotions, clarity and authenticity. Whether it's movies,  our expert artists and sound engineers provide high-quality dubbing in many languages to help you join the global audience.We understand that the voice is not just a sound - this is the story. This is why we focus on tone, time and cultural shades to ensure that each dub line seems natural as original. With a wide network of state -of -the -art recording studios, accurate lip -synchronization and versatile  talents, we ensure that your content reaches every corner of the world without losing the essence. Trust dreamers to vote to his content that he deserves.",
     color: "text-accent",
     image:
       dubbingImage,
@@ -64,7 +64,7 @@ const services: Service[] = [
     icon: vfx,
     title: "VFX",
     description:
-      "Our stunning visual effects services add creative and cinematic visuals to your videos. From motion graphics to complex CGI, we bring your vision to life with breathtaking effects.",
+      "VFX- At Dreams Production House, we convert fantasy into reality through state -art -art -visual effects that increase the storytelling to a new level. Our VFX team combines creativity with advanced technology to create immersive images for movies, music videos, web series.`We specialize in providing high quality effects that mix defect with live-action recording. Each framework is handled with accuracy and ensures visual stability and cinematic effects.Whether you want to improve the scenes, create a fantasy world, Dream's end-to-end VFX solutions that fit the vision and budget of your project. With our talented artists and powerful pipelines after production, we even bring the most ambitious ideas into a life frame after frame. Let your story define. Make visual magic with dreamers",
     color: "text-accent",
     image:
       vfxImage,

@@ -95,16 +95,11 @@ const About = () => {
             </motion.div>
 
             <p className="text-lg text-muted-foreground leading-relaxed text-center lg:text-left">
-              We are a passionate team of post-production specialists dedicated
-              to bringing your creative vision to life. With years of experience
-              in the film industry, we understand the nuances that make great
-              storytelling.
+              Since our establishment in 2025, we have been offering extraordinary pre -production and post -production services. Our experience spreads in film, music and various creative domains, which helps us create a strong foundation in the media industry. 
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed text-center lg:text-left">
-              From intimate documentaries to blockbuster features, we've worked
-              across all genres, delivering exceptional quality that exceeds
-              expectations every time.
+              Supported by an emotional team of talented professionals and artists, we are committed to understanding your vision and transport over all expectations. We provide  wide range of services and bring your ideas to life!
             </p>
 
             {/* Award Highlight  */}
