@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2025 Dreemers Production House. All rights reserved.
+            © 2025 Dreamer's Production House. All rights reserved.
           </p>
 
           {/* Social Icons */}
