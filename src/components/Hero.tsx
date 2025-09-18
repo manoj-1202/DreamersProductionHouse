@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-bg.jpg";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -32,7 +33,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-10 justify-center items-center">
-            <a href="tel:+917904310585" >
+            <a href="tel:+917904310585">
               <Button variant="hero" size="xl" className="group">
                 <Phone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Contact us
@@ -46,20 +47,38 @@ const Hero = () => {
               Start Your Project
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
+
+            {/* Short Film Button with Glow */}
+            <a
+              href="https://forms.gle/tBW59br2Ji8Qoc7bA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="xl"
+                className="group border-2 glow-button text-primary px-2"
+              >
+                Short Film Competition Form
+              </Button>
+            </a>
           </div>
         </div>
-
-        {/* Floating decorative elements */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-float opacity-60" />
-        <div
-          className="absolute bottom-32 right-16 w-3 h-3 bg-accent rounded-full animate-float opacity-40"
-          style={{ animationDelay: "1s" }}
-        />
-        <div
-          className="absolute top-40 right-20 w-1.5 h-1.5 bg-primary rounded-full animate-float opacity-80"
-          style={{ animationDelay: "2s" }}
-        />
       </div>
+      {/* Custom CSS inside same file */}
+      <style>{`
+        @keyframes glow {
+          0%, 100% {
+            box-shadow: 0 0 10px rgb(246,166,16), 0 0 20px rgb(246,166,16);
+          }
+          50% {
+            box-shadow: 0 0 20px rgb(246,166,16), 0 0 40px rgb(246,166,16);
+          }
+        }
+        .glow-button {
+          animation: glow 1.5s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
