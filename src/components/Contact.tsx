@@ -27,13 +27,21 @@ const Contact = () => {
       content: "+91 7904310585",
       color: "text-accent",
     },
-    {
+        {
       icon: MapPin,
-      title: "Location",
+      title: "Branch 1",
       content:
         "21/b Saisubaramaniyam Nagar, Nanjagoundapalayam, Gobichettipalayam, Erode, 638452.",
       color: "text-primary",
     },
+        {
+      icon: MapPin,
+      title: "Branch 2",
+      content:
+        "96/2 Akshaya Avenue, Thiruveesar nagar, Avarampalayam, Coimbatore, 641006.",
+      color: "text-primary",
+    },
+
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {

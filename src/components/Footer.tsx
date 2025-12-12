@@ -109,6 +109,12 @@ const Footer = () => {
                   Gobichettipalayam, Erode, 638452.
                 </span>
               </div>
+                  <div className="flex items-center space-x-2 text-muted-foreground">
+                <MapPin className="w-8 h-8" />
+                <span className="text-sm">
+                  96/2, Akshaya Avenue, Thiruveesar Nagar, Avarampalayam, Peelamedu, Coimbatore, 641006.
+                </span>
+              </div>
             </div>
           </div>
         </div>
