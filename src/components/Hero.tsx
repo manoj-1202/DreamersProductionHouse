@@ -49,11 +49,11 @@ const Hero = () => {
             </Link>
 
             {/* Short Film Button with Glow */}
-            <a
+            {/* <a
               href="https://forms.gle/tBW59br2Ji8Qoc7bA"
               target="_blank"
               rel="noopener noreferrer"
-            >
+            > */}
               <Button
                 variant="outline"
                 size="xl"
@@ -61,7 +61,7 @@ const Hero = () => {
               >
                 Short Film Competition Form
               </Button>
-            </a>
+            {/* </a> */}
           </div>
         </div>
       </div>
