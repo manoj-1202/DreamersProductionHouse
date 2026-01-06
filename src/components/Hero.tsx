@@ -54,13 +54,13 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
             > */}
-              <Button
+              {/* <Button
                 variant="outline"
                 size="xl"
                 className="group border-2 glow-button text-primary px-2"
               >
                 Short Film Competition Form
-              </Button>
+              </Button> */}
             {/* </a> */}
           </div>
         </div>
