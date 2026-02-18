@@ -79,7 +79,7 @@ useEffect(() => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name,
-          email,
+          email, 
           phone,
           location,
           duration,

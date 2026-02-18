@@ -142,7 +142,7 @@ const ServiceDetail = () => {
           </p>
           <Button
             variant="ghost"
-            onClick={() => navigate("#services")}
+            onClick={() => navigate("/services")}
             className="mt-4 text-primary"
           >
             Back to Services
@@ -159,7 +159,7 @@ const ServiceDetail = () => {
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => navigate("/")}
+            onClick={() => navigate(-1)}
             className="mb-6 flex items-center gap-2 text-foreground hover:bg-primary hover:text-white"
           >
             <ArrowLeft className="w-5 h-5" />

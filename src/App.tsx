@@ -6,6 +6,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import StartProject from "./components/StartProject";
 import ServiceDetail from "./components/ServiceDetail";
+import ServicesPage from "./pages/ServicesPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
@@ -16,9 +19,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/startProject" element={<StartProject />} />
-           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
