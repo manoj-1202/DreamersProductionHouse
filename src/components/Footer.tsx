@@ -30,6 +30,11 @@ const Footer = () => {
               vision to life. From concept to completion, we craft stories that
               captivate audiences.
             </p>
+            <p className="text-muted-foreground leading-relaxed max-w-md mt-3">
+              We also build custom websites for businesses and creators, with
+              modern design, smooth user experience, and brand-focused
+              presentation.
+            </p>
           </div>
 
           {/* Services */}
@@ -68,6 +73,14 @@ const Footer = () => {
                   SFX Design
                 </Link>
               </li>
+                            <li>
+                <Link
+                  to="/services/website-creation"
+                  className="hover:text-primary transition-colors"
+                >
+                  Website Creation
+                </Link>
+              </li>
               <li>
                 <div className="flex items-center space-x-1">
                   <Link
@@ -101,6 +114,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
                 <span className="text-sm">+91 7904310585</span>
+              </div>
+              <div className="flex items-center space-x-2 text-muted-foreground">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+91 6383338383 (Website Creation)</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-8 h-8" />

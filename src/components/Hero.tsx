@@ -44,7 +44,16 @@ const Hero = () => {
               to="/startProject"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md text-lg font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-all group"
             >
-              Start Your Project
+              Start Your Movie Project
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            </Link>
+
+            
+            <Link
+              to="/services/website-creation"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-md text-lg font-semibold text-yellow-300 border border-yellow-400 hover:text-black hover:bg-yellow-400 transition-all group"
+            >
+              Start Website Building
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
 

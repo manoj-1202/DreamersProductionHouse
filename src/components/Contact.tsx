@@ -27,6 +27,12 @@ const Contact = () => {
       content: "+91 7904310585",
       color: "text-accent",
     },
+    {
+      icon: Phone,
+      title: "Website Creation",
+      content: "+91 6383338383",
+      color: "text-accent",
+    },
         {
       icon: MapPin,
       title: "Branch 1",
@@ -49,7 +55,7 @@ const Contact = () => {
     setSubmitting(true);
     try {
       const response = await fetch(
-        "https://backend-dreamers.onrender.com/send-contact-email",
+        "https://qucikserve-backend.onrender.com/send-contact-email",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

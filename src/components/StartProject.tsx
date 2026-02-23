@@ -9,6 +9,7 @@ import {
   Music,
   Image,
   Video,
+  Globe,
   ArrowRight,
   X,
   LucideIcon,
@@ -40,6 +41,7 @@ const services: Service[] = [
   { icon: Music, title: "Music Composing", description: "", color: "text-primary" },
   { icon: Image, title: "Poster Designing", description: "", color: "text-yellow-400" },
   { icon: Video, title: "Teaser Cut", description: "", color: "text-primary" },
+  { icon: Globe, title: "Website Creation", description: "", color: "text-yellow-400" },
 ];
 
 const StartProject: React.FC = () => {

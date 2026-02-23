@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Award, Users, Clock, Star, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import certificateImg from "@/assets/certificateImg.jpg"; 
-import 'react-medium-image-zoom/dist/styles.css';
+import certificateImg from "@/assets/certificateImg.jpg";
+import "react-medium-image-zoom/dist/styles.css";
 
 const About = () => {
   const stats = [
@@ -46,16 +46,22 @@ const About = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const websiteCreationHighlights = [
+    "Custom website layouts designed for your brand identity",
+    "Mobile and desktop friendly design for all users",
+    "Smooth navigation and clear content sections",
+    "Scalable website structure for future updates",
+  ];
+
   return (
-    <section id="about" className="py-20 px-6 bg-background">
+    <section id="about" className="py-16 md:py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-          {/* Left Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           <motion.div
-            className="lg:w-1/2 space-y-6"
+            className="lg:col-span-7 space-y-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center lg:text-left">
@@ -65,107 +71,103 @@ const About = () => {
               </span>
             </h2>
 
-            {/* Stats Grid - Visible only on mobile after heading */}
-            <motion.div
-              className="block lg:hidden"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat) => (
-                  <motion.div key={stat.label} variants={itemVariants}>
-                    <Card className="p-6 text-center bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105">
-                      <div
-                        className={`inline-flex p-3 rounded-full bg-secondary mb-4 ${stat.color}`}
-                      >
-                        <stat.icon className="w-6 h-6" />
-                      </div>
-                      <div className="text-3xl font-bold text-foreground mb-2">
-                        {stat.number}
-                      </div>
-                      <div className="text-muted-foreground font-medium">
-                        {stat.label}
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
             <p className="text-lg text-muted-foreground leading-relaxed text-center lg:text-left">
-              Since our establishment in 2025, we have been offering extraordinary pre -production and post -production services. Our experience spreads in film, music and various creative domains, which helps us create a strong foundation in the media industry. 
+              Since our establishment in 2025, we have been offering extraordinary pre-production and post-production
+              services. Our work spans film, music, and creative media, building a strong foundation in the industry.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed text-center lg:text-left">
-              Supported by an emotional team of talented professionals and artists, we are committed to understanding your vision and transport over all expectations. We provide  wide range of services and bring your ideas to life!
+              Backed by a passionate team of professionals and artists, we focus on understanding your vision and delivering
+              outcomes that exceed expectations across every stage of production.
             </p>
 
-            {/* Award Highlight  */}
-          <div className="pt-0 lg:pt-[200px]">
-              <h3 className="text-3xl font-semibold text-foreground mb-2 text-center lg:text-left font-bodoni">
-                🎬 Award-Winning  <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Recognition
-              </span>
-              </h3>
-              <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
-                Our short film <strong>"Dreamers"</strong>, directed by{" "}
-                <strong>K. Dharani</strong>, was recognized as a finalist in the{" "}
-                <strong>MEI International Film Festival 2025</strong>. Among
-                1200+ global entries, it stood out for its creative vision and
-                societal impact. We're honored to be part of this global platform.
-              </p>
-            </div>
-
-            {/* Certificate Image - Visible only on mobile after Award Highlight */}
             <motion.div
-              className="block lg:hidden"
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              className="relative overflow-hidden rounded-2xl border border-yellow-400/40 bg-gradient-to-br from-yellow-500/15 via-card to-accent/15 p-6"
             >
-              <img
-                src={certificateImg}
-                alt="MEIFF 2025 Winner Certificate"
-                className="w-full h-auto max-h-[500px] rounded-md border object-contain shadow-md mx-auto"
-              />
+              <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-yellow-400/20 blur-3xl pointer-events-none" />
+              <p className="text-xs uppercase tracking-[0.25em] text-yellow-300 mb-3">
+                Website Creation
+              </p>
+              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-3 text-center lg:text-left">
+                Unique Websites Built for Your Brand and Audience
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-5 text-center lg:text-left">
+                We create custom business websites that reflect your brand and communicate your services clearly. Every
+                website is built with modern design, clean structure, and an easy user experience from start to finish.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+                {websiteCreationHighlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-md border border-yellow-400/25 bg-background/50 px-3 py-2 text-sm text-foreground/90"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Link
+                  to="/services/website-creation"
+                  className="inline-flex items-center justify-center px-5 py-2 rounded-md text-sm font-semibold text-black bg-yellow-400 hover:bg-yellow-500 transition-colors"
+                >
+                  Explore Website Creation
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+
+              </div>
             </motion.div>
 
-            <div className="flex justify-center lg:justify-start">
+            <Card className="p-6 bg-gradient-card border-border">
+              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2 text-center lg:text-left font-bodoni">
+                Award-Winning <span className="bg-gradient-accent bg-clip-text text-transparent">Recognition</span>
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-center lg:text-left">
+                Our short film <strong>"Dreamers"</strong>, directed by <strong>K. Dharani</strong>, was recognized as a finalist
+                in the <strong>MEI International Film Festival 2025</strong>. Among 1200+ global entries, it stood out for its
+                creative vision and societal impact.
+              </p>
+            </Card>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <Link
                 to="/startProject"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-md text-lg font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-all group"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-md text-base font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-all group"
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
+              <Link
+                to="/startProject"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-md text-base font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-colors"
+              >
+                Start Website Building
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </div>
           </motion.div>
 
-          {/* Right Section - Visible only on larger screens */}
           <motion.div
-            className="hidden lg:block lg:w-1/2 space-y-8"
+            className="lg:col-span-5 space-y-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-5">
               {stats.map((stat) => (
                 <motion.div key={stat.label} variants={itemVariants}>
-                  <Card className="p-6 text-center bg-gradient-card border-border hover:shadow-elegant transition-all duration-500 hover:scale-105">
-                    <div
-                      className={`inline-flex p-3 rounded-full bg-secondary mb-4 ${stat.color}`}
-                    >
-                      <stat.icon className="w-6 h-6" />
+                  <Card className="h-full p-5 text-center bg-gradient-card border-border hover:shadow-elegant transition-all duration-300 hover:scale-[1.02]">
+                    <div className={`inline-flex p-3 rounded-full bg-secondary mb-3 ${stat.color}`}>
+                      <stat.icon className="w-5 h-5" />
                     </div>
-                    <div className="text-3xl font-bold text-foreground mb-2">
+                    <div className="text-2xl md:text-3xl font-bold text-foreground mb-1">
                       {stat.number}
                     </div>
-                    <div className="text-muted-foreground font-medium">
+                    <div className="text-sm text-muted-foreground font-medium">
                       {stat.label}
                     </div>
                   </Card>
@@ -173,16 +175,15 @@ const About = () => {
               ))}
             </div>
 
-            {/* Certificate Image */}
-          <motion.div variants={itemVariants}>
- 
-    <img
-      src={certificateImg}
-      alt="MEIFF 2025 Winner Certificate"
-      className="w-full h-auto max-h-[500px] rounded-md object-contain shadow-md cursor-zoom-in"
-    />
-  
-</motion.div>
+            <motion.div variants={itemVariants}>
+              <Card className="p-3 bg-gradient-card border-border">
+                <img
+                  src={certificateImg}
+                  alt="MEIFF 2025 Winner Certificate"
+                  className="w-full h-auto max-h-[520px] rounded-md object-contain shadow-md"
+                />
+              </Card>
+            </motion.div>
           </motion.div>
         </div>
       </div>
