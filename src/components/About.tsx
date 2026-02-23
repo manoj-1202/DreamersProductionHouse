@@ -141,7 +141,7 @@ const About = () => {
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                to="/startProject"
+                 to="/services/website-creation"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-md text-base font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-colors"
               >
                 Start Website Building

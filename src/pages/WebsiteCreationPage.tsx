@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUp, CheckCircle2, Globe, LayoutDashboard, Megaphone, Rocket, Search, ShieldCheck, ShoppingBag, Smartphone, Wrench } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
@@ -157,6 +157,7 @@ const WebsiteCreationPage = () => {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -229,6 +230,11 @@ const WebsiteCreationPage = () => {
     }
   };
 
+  const openDialog = () => {
+    lastFocusedElementRef.current = document.activeElement as HTMLElement | null;
+    setOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background font-cinematic">
       <motion.header
@@ -255,7 +261,7 @@ const WebsiteCreationPage = () => {
             <Button
               size="sm"
               className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold text-xs sm:text-sm px-2 sm:px-3"
-              onClick={() => setOpen(true)}
+              onClick={openDialog}
             >
               Start Project
             </Button>
@@ -299,7 +305,7 @@ const WebsiteCreationPage = () => {
           <p className="text-xs uppercase tracking-wide text-yellow-300 mb-2">Build With Us</p>
           <h4 className="text-sm font-semibold text-foreground mb-3">Launch a high-converting website for your brand.</h4>
           <Button
-            onClick={() => setOpen(true)}
+            onClick={openDialog}
             className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold text-sm"
           >
             Start Project
@@ -346,7 +352,14 @@ const WebsiteCreationPage = () => {
                     Website Creation
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-4">
-                    SEO-FRIENDLY WEBSITE DESIGN AND DEVELOPMENT FOR GROWING BRANDS
+                    <span className="bg-gradient-accent bg-clip-text text-transparent">
+                      SEO
+                    </span>
+                    -FRIENDLY WEBSITE DESIGN AND DEVELOPMENT FOR{" "}
+                    <span className="bg-gradient-accent bg-clip-text text-transparent">
+                      GROWING
+                    </span>{" "}
+                    BRANDS
                   </h1>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     We build SEO-friendly business websites that rank better, load faster, and convert visitors into real leads.
@@ -369,7 +382,13 @@ const WebsiteCreationPage = () => {
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[520px] bg-card border-border">
+                    <DialogContent
+                      className="sm:max-w-[520px] bg-card border-border"
+                      onCloseAutoFocus={(event) => {
+                        event.preventDefault();
+                        lastFocusedElementRef.current?.focus({ preventScroll: true });
+                      }}
+                    >
                       <DialogHeader>
                         <DialogTitle className="text-2xl font-bold text-foreground">
                           HOW CAN WE HELP?
@@ -459,7 +478,11 @@ const WebsiteCreationPage = () => {
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">
-              One-Stop SEO Website Solutions
+              One-Stop{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                SEO
+              </span>{" "}
+              Website Solutions
             </h2>
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -495,7 +518,10 @@ const WebsiteCreationPage = () => {
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">
-              Results You Can Expect
+              Results You Can{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Expect
+              </span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {outcomeCards.map((item) => (
@@ -517,7 +543,18 @@ const WebsiteCreationPage = () => {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Before
+              </span>{" "}
+              vs{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                After
+              </span>{" "}
+              Website Transformation
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card className={`p-7 border-border bg-card/70 ${cardHoverClass}`}>
               <p className="text-xs uppercase tracking-wide text-muted-foreground mb-3">Before</p>
               <h3 className="text-2xl font-semibold text-foreground mb-3">Outdated Website Experience</h3>
@@ -536,6 +573,7 @@ const WebsiteCreationPage = () => {
                 <li>Modern brand presentation that builds trust instantly.</li>
               </ul>
             </Card>
+            </div>
           </div>
         </motion.section>
 
@@ -549,7 +587,15 @@ const WebsiteCreationPage = () => {
         >
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">
-              Website Design and Development Services in Coimbatore
+              Website{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Design
+              </span>{" "}
+              and{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Development
+              </span>{" "}
+              Services in Coimbatore
             </h2>
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
@@ -588,14 +634,18 @@ const WebsiteCreationPage = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    Let&apos;s Build Your Dream Website
+                    Let&apos;s Build Your{" "}
+                    <span className="bg-gradient-accent bg-clip-text text-transparent">
+                      Dream
+                    </span>{" "}
+                    Website
                   </h3>
                   <p className="text-muted-foreground">
                     Share your business goal and we will propose the right website plan.
                   </p>
                 </div>
                 <Button
-                  onClick={() => setOpen(true)}
+                  onClick={openDialog}
                   className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold"
                 >
                   Request a Free Quote
@@ -632,7 +682,11 @@ const WebsiteCreationPage = () => {
                     Trusted Website Design Company
                   </p>
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                    Build a Copyright-Safe, SEO-Ready Website for Your Business
+                    Build a Copyright-Safe,{" "}
+                    <span className="bg-gradient-accent bg-clip-text text-transparent">
+                      SEO-Ready
+                    </span>{" "}
+                    Website for Your Business
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
                     A high-performing website turns search traffic into qualified customers. Our team creates original website design, custom development, and SEO-focused content structure to improve ranking and lead generation. All deliverables are produced as original work with clear ownership terms, helping your brand avoid copyright risk from copied layouts, text, or media. As a professional website design and web development team in Coimbatore, we deliver modern websites that are fast, secure, and built for long-term growth.
