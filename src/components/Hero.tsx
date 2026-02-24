@@ -44,7 +44,7 @@ const Hero = () => {
               to="/startProject"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md text-lg font-semibold text-primary border border-primary hover:text-white hover:bg-primary transition-all group"
             >
-              Start Your Movie Project
+              Start Movie Project
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
 

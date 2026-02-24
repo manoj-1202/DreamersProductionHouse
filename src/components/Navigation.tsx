@@ -46,12 +46,12 @@ const Navigation = () => {
                 {item.name}
               </NavLink>
             ))}
-            <Link
+            {/* <Link
               to="/startProject"
               className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition-all duration-300"
             >
               Start Now
-            </Link>
+            </Link> */}
           </div>
 
           <div className="md:hidden">
@@ -93,7 +93,7 @@ const Navigation = () => {
                 {item.name}
               </NavLink>
             ))}
-            <div className="pt-6 flex justify-center">
+            {/* <div className="pt-6 flex justify-center">
               <Link
                 to="/startProject"
                 className="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-4 rounded-md transition-all duration-300"
@@ -101,7 +101,7 @@ const Navigation = () => {
               >
                 Start Now
               </Link>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
