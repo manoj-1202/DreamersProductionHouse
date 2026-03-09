@@ -1,9 +1,8 @@
 import { Card } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import colorGrading from "../assets/colorGrading.png"
 import dubbing from "../assets/dubbing.png"
-import icon from "../assets/icon.png"
 import mixmas from "../assets/mixmas.png"
 import muisc from "../assets/music.png"
 import poster from "../assets/poster.png"
@@ -24,8 +23,6 @@ interface Service {
 }
 
 const Services = () => {
-  const navigate = useNavigate();
-
   const services: Service[] = [
     {
       icon:www,
@@ -101,11 +98,6 @@ const Services = () => {
     },
   ];
 
-  const handleServiceClick = (title: string) => {
-    const slug = title.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/services/${slug}`);
-  };
-
   return (
     <section id="services" className="py-20 px-6 bg-gradient-hero">
       <div className="max-w-7xl mx-auto">
@@ -124,76 +116,81 @@ const Services = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              className={service.featured ? "md:col-span-2 lg:col-span-3" : ""}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.3,
-                ease: "easeOut",
-              }}
-            >
-               <Card
-                className={`relative overflow-hidden p-6 border-border transition-all duration-500 hover:shadow-elegant hover:scale-105 group cursor-pointer ${
-                  service.featured
-                    ? "bg-gradient-to-br from-yellow-500/10 via-secondary to-accent/10 border-yellow-400/50 ring-1 ring-yellow-400/40"
-                    : "bg-gradient-card"
-                }`}
-                onClick={() => handleServiceClick(service.title)}
+          {services.map((service, index) => {
+            const slug = service.title.toLowerCase().replace(/\s+/g, "-");
+
+            return (
+              <motion.div
+                key={service.title}
+                className={service.featured ? "md:col-span-2 lg:col-span-3" : ""}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.3,
+                  ease: "easeOut",
+                }}
               >
-                {service.featured && (
-                  <motion.div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
-                    animate={{
-                      opacity: [0.2, 0.35, 0.2],
-                      boxShadow: [
-                        "inset 0 0 0 rgba(250,204,21,0), 0 0 0 rgba(250,204,21,0)",
-                        "inset 0 0 24px rgba(250,204,21,0.08), 0 0 22px rgba(250,204,21,0.18)",
-                        "inset 0 0 0 rgba(250,204,21,0), 0 0 0 rgba(250,204,21,0)",
-                      ],
-                    }}
-                    transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                )}
-                <div className={`flex ${service.featured ? "flex-col md:flex-row md:items-center md:justify-between gap-6" : "items-start space-x-4"}`}>
-                  <div
-                    className={`p-2 w-16 h-16 rounded-lg overflow-hidden bg-secondary ${service.color} group-hover:scale-110 transition-transform duration-300`}
+                <Link to={`/services/${slug}`} className="block">
+                  <Card
+                    className={`relative overflow-hidden p-6 border-border transition-all duration-500 hover:shadow-elegant hover:scale-105 group cursor-pointer ${
+                      service.featured
+                        ? "bg-gradient-to-br from-yellow-500/10 via-secondary to-accent/10 border-yellow-400/50 ring-1 ring-yellow-400/40"
+                        : "bg-gradient-card"
+                    }`}
                   >
-                    <img src={service.icon} alt={service.title} className="w-full h-full object-cover rounded" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
                     {service.featured && (
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
-                        <span className="inline-flex text-xs font-semibold tracking-wide px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/40">
-                          New Service
-                        </span>
-                        <span className="inline-flex text-xs font-semibold tracking-wide px-2 py-1 rounded-full bg-accent/20 text-accent border border-accent/40">
-                          {service.tag}
-                        </span>
-                      </div>
+                      <motion.div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                        animate={{
+                          opacity: [0.2, 0.35, 0.2],
+                          boxShadow: [
+                            "inset 0 0 0 rgba(250,204,21,0), 0 0 0 rgba(250,204,21,0)",
+                            "inset 0 0 24px rgba(250,204,21,0.08), 0 0 22px rgba(250,204,21,0.18)",
+                            "inset 0 0 0 rgba(250,204,21,0), 0 0 0 rgba(250,204,21,0)",
+                          ],
+                        }}
+                        transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                      />
                     )}
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                  {service.featured && (
-                    <div className="md:shrink-0">
-                      <span className="inline-flex px-4 py-2 rounded-md bg-gradient-accent text-black font-semibold text-sm shadow-md">
-                        Build Your Online Presence
-                      </span>
+                    <div className={`flex ${service.featured ? "flex-col md:flex-row md:items-center md:justify-between gap-6" : "items-start space-x-4"}`}>
+                      <div
+                        className={`p-2 w-16 h-16 rounded-lg overflow-hidden bg-secondary ${service.color} group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <img src={service.icon} alt={service.title} className="w-full h-full object-cover rounded" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                          {service.title}
+                        </h3>
+                        {service.featured && (
+                          <div className="flex flex-wrap items-center gap-2 mb-3">
+                            <span className="inline-flex text-xs font-semibold tracking-wide px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/40">
+                              New Service
+                            </span>
+                            <span className="inline-flex text-xs font-semibold tracking-wide px-2 py-1 rounded-full bg-accent/20 text-accent border border-accent/40">
+                              {service.tag}
+                            </span>
+                          </div>
+                        )}
+                        <p className="text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                      {service.featured && (
+                        <div className="md:shrink-0">
+                          <span className="inline-flex px-4 py-2 rounded-md bg-gradient-accent text-black font-semibold text-sm shadow-md">
+                            Build Your Online Presence
+                          </span>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+                  </Card>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
